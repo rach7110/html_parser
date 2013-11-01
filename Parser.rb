@@ -1,4 +1,4 @@
-'Rachel\'s Book Parser'
+# 'Rachel\'s Book Parser'
 
 # Gem: nokogiri for parsing information out of the html file from its css.
 require 'nokogiri'
