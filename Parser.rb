@@ -18,44 +18,35 @@ class Parse
 	end
 
 	def book_info
-		@title = book_title
-		@author = book_author 
-		@price = book_price
-		@shipping_weight = book_shipping_weight
-		@isbn = book_isbn_10
+		@title = puts book_title
+		@author = puts book_author 
+		@price = puts book_price
+		@shipping_weight = puts book_shipping_weight
+		@isbn_10 = puts book_isbn_10
 	end
 
 	def book_title
 		title = @page.css('span#btAsinTitle').text
-		puts "Title: #{title}"
 	end
 
 	def book_author
 		author = @page.css('div.buying span a').text.split("Details")
-		puts "Author: #{author}"
 	end
 
 	def book_price
 		price = @page.css('b.priceLarge').text
-		puts "Price: #{price}"
 	end
-# ----------BUG: Shipping Weight not parsing correctly---------------
-	def book_shipping_weight
-		shipping_weight = @page.css('table div.content ul').each do |li|
-			if li.text.include?("Shipping Weight")
-				puts "Shipping Weight: #{li}"
-			end
-		end
 
+	def book_shipping_weight
+		shipping_weight = @page.css('table div.content ul li')[6].text.split("pounds (View shipping rates and policies)")
 	end
-# ----------BUG: & ISBN-10  not parsing correctly---------------
+
 	def book_isbn_10
-		@page.css('div.content ul').each do |li|
-			if li.text.include?("ISBN-10")
-				puts "Book ISBN-10: #{li}"
-			end
-		end
+		isbn_10 = @page.css('table div.content ul li')[3].text
 	end
 
 end
+
+# IMPORVEMENT OPTIONS:
+# Change the book_shipping_weight method to pull out only the number and convert it to a float.
 
