@@ -1,0 +1,49 @@
+Datafiniti Code Chllenge
+-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+
+STEP 1) You will need to design and implement a fully functioning application that can 
+take these pages and extract meaningful information from the raw source.
+
+The extracted data must contain at least the following fields:
+
+_Title
+_Author
+_Price
+_Shipping Weight
+_ISBN-10
+
+Though it is recommended to try to pull out as much data as you can (Bonus points for gathering additional fields).
+
+-------------------------------------------------------------------------------------------------------------------------
+STEP 2) After extracting this information you will need to divide these twenty books into N boxes for shipping 
+with each box having no more than ten pounds of books.
+
+-------------------------------------------------------------------------------------------------------------------------
+STEP 3) Your application should ouput its results in a valid and well structured JSON document like the example below:
+
+{
+    "box": {
+        "id": 1,
+        "totalWeight": "1.1 pounds",
+        "contents": [
+            {
+                "title": "The Great Big Beautiful Tomorrow",
+                "author": "Cory Doctorow",
+                "price": "$9.82 USD",
+                "shipping_weight": "1.1 pounds",
+                "isbn-10": 1604864044
+            }
+
+            . . .
+        ]
+    }
+
+    . . .
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+NOTES: Process for tackling:
+-whats different/same among book pages on amazon?
+---want to make sure I'm not building code script that works for one page, but not the others.
+
